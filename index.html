@@ -1,303 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Unique 2025 Calendars by WhimsicalWishCrafts</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique 2025 Calendars</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --primary-color: #2C5282;
-            --secondary-color: #4299E1;
-            --accent-color: #F6AD55;
-            --text-color: #2D3748;
-            --light-bg: #F7FAFC;
-            --white: #FFFFFF;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-bg);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h1, h2, h3, .logo {
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Navbar */
-        .navbar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        
-        .navbar {
-            background: var(--white);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-links a {
-            margin-left: 2rem;
-            text-decoration: none;
-            color: var(--text-color);
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 500;
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 80px;
-            overflow: hidden;
-            background-image: url('./Media/raccons in art/default.png');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.6);
-            z-index: 1;
-        }
-
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-color);
-            margin-bottom: 2rem;
-        }
-
-        /* Showcase Slider */
-        .showcase-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            max-width: 600px;
-            margin: 1rem auto;
-        }
-
-        .showcase-slider {
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .showcase-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .showcase-slide {
-            min-width: 100%;
-            padding: 0 1rem;
-        }
-
-        .showcase-slide img {
-            width: 100%;
-            max-width: 400px; /* Prevents image from getting too large */
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            object-fit: contain;
-        }
-
-        .slide-arrow {
-            background: var(--white);
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            z-index: 2;
-            margin: 0 1rem;
-        }
-        
-        /* CTA Button */
-        .cta-button {
-            background: var(--accent-color);
-            color: var(--white) !important;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: transform 0.2s, box-shadow 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(246, 173, 85, 0.4);
-        }
-
-        /* General Section Styling */
-        section {
-            padding: 4rem 0;
-            scroll-margin-top: 80px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container navbar-container">
+    <!-- Navbar -->
+    <nav class="navbar">
         <div class="logo">WhimsicalWishCrafts</div>
-        <ul class="nav-links">
-            <li><a href="#about">Welcome</a></li>
-            <li><a href="#benefits">Calendars</a></li>
-            <li><a href="#mode-toggle">Print Styles</a></li>
-            <li><a href="#testimonials">Reviews</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="https://www.etsy.com/shop/WhimsicalWishCrafts" class="cta-button" target="_blank">Shop Now</a></li>
-        </ul>
-    </div>
-  </nav>
+        <div class="nav-links">
+            <a href="#about">Welcome</a>
+            <a href="#benefits">Calendars</a>
+            <a href="#mode-toggle">Print Styles</a>
+            <a href="#testimonials">Reviews</a>
+            <a href="#faq">FAQ</a>
+            <a href="https://www.etsy.com/shop/WhimsicalWishCrafts?ref=shop-header-name&listing_id=1792786732&from_page=listing&section_id=50899879" class="cta-button">Shop Now</a>
+        </div>
+    </nav>
 
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>2025 Raccoons in Art</h1>
-      <p>Discover our collection of beautifully designed calendars that bring art and functionality to your space.</p>
-      
-      <div class="showcase-container">
-        <button class="slide-arrow" id="arrow-prev">&#8249;</button>
-        <div class="showcase-slider">
-          <div class="showcase-track">
-            <div class="showcase-slide"><img src="./Media/raccons in art/month-1.png" alt="January - Raccoon Art"></div>
-            <div class="showcase-slide"><img src="./Media/raccons in art/month-2.png" alt="February - Raccoon Art"></div>
-            <div class="showcase-slide"><img src="./Media/raccons in art/month-3.png" alt="March - Raccoon Art"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <p>Discover our collection of beautifully designed calendars that bring art and functionality to your space.</p>
+        </div>
+        <div class="showcase-container">
+            <button class="slide-arrow" id="arrow-prev">&#8249;</button>
+            <div class="showcase-slider">
+                <div class="showcase-track">
+                    <div class="showcase-slide">
+                        <img src="./Media/raccons in art/default.png" alt="Raccoons in Art 2025 Wall Calendar - Cover">
+                    </div>
+                    <div class="showcase-slide">
+                        <img src="./Media/raccons in art/month-1.png" alt="January - Raccoon Art">
+                    </div>
+                    <div class="showcase-slide">
+                        <img src="./Media/raccons in art/month-2.png" alt="February - Raccoon Art">
+                    </div>
+                    <div class="showcase-slide">
+                        <img src="./Media/raccons in art/month-3.png" alt="March - Raccoon Art">
+                    </div>
+                    <div class="showcase-slide">
+                        <img src="./Media/raccons in art/month-4.png" alt="April - Raccoon Art">
+                    </div>
+                    <div class="showcase-slide">
+                        <img src="./Media/raccons in art/month-5.png" alt="May - Raccoon Art">
+                    </div>
+                    <div class="showcase-slide">
+                        <img src="./Media/raccons in art/month-6.png" alt="June - Raccoon Art">
+                    </div>
+                    <div class="showcase-slide">
+                        <img src="./Media/raccons in art/month-7.png" alt="July - Raccoon Art">
+                    </div>
+                    <div class="showcase-slide">
+                        <img src="./Media/raccons in art/month-8.png" alt="August - Raccoon Art">
+                    </div>
+                    <div class="showcase-slide">
+                        <img src="./Media/raccons in art/month-9.png" alt="September - Raccoon Art">
+                    </div>
+                    <div class="showcase-slide">
+                        <img src="./Media/raccons in art/month-10.png" alt="October - Raccoon Art">
+                    </div>
+                    <div class="showcase-slide">
+                        <img src="./Media/raccons in art/month-11.png" alt="November - Raccoon Art">
+                    </div>
+                    <div class="showcase-slide">
+                        <img src="./Media/raccons in art/month-12.png" alt="December - Raccoon Art">
+                    </div>
+                </div>
+            </div>
+            <button class="slide-arrow" id="arrow-next">&#8250;</button>
+        </div>
+        <div class="showcase-dots"></div>
+        <div class="showcase-description">
+            <p>Prepare to be captivated by the whimsical blend of high art and hilarious hijinks that only raccoons can bring to life.</p>
+            <a href="https://www.etsy.com/listing/1792786732/raccoons-in-art-funny-2025-wall-calendar?click_key=4b358cc372aeb3238c4cc328d1b74846b89f777f%3A1792786732&click_sum=ffaef6e4&ref=shop_home_active_1" class="cta-button">Shop This Calendar</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us" id="about">
+        <div class="about-content">
+            <h2>Welcome to WhimsicalWishCrafts</h2>
+            <div class="about-text">
+                <p>At WhimsicalWishCrafts, we're your go-to destination for imaginative artistry, creative designs, and unique products that celebrate life's moments – big and small. With a commitment to embracing whimsy and sparking joy.</p>
+                
+                <p>Known for our passion for artistic expression and a touch of the magical, we're here for all communities to celebrate their individuality and delight in the extraordinary. We offer a haven for those seeking products that ignite the imagination, brighten everyday life, and provide an escape from the ordinary.</p>
+                
+                <p>Our mission is to craft items that resonate with your unique spirit and inspire creativity, from charming calendars that brighten your year to playful stickers that add a touch of whimsy to your world. At WhimsicalWishCrafts, we believe that life is a canvas, and we're here to help you paint it with color, joy, and a dash of enchantment.</p>
+                
+                <p class="tagline">At WhimsicalWishCrafts, we're dedicated to celebrating your imagination, creativity, and the magic in everyday life.</p>
+                
+                <p class="signature">WhimsicalWishCrafts, where whimsy meets wonder.</p>
             </div>
         </div>
-        <button class="slide-arrow" id="arrow-next">&#8250;</button>
-      </div>
-      
-      <p class="showcase-description">Prepare to be captivated by the whimsical blend of high art and hilarious hijinks that only raccoons can bring to life.</p>
-      
-      <a href="https://www.etsy.com/listing/1792786732/raccoons-in-art-funny-2025-wall-calendar" class="cta-button" target="_blank">Shop This Calendar</a>
-    </div>
-  </section>
-  
-  <section id="about" class="container">
-      <h2 class="section-title">Welcome!</h2>
-      </section>
+    </section>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const track = document.querySelector('.showcase-track');
-        if (track) {
-            const slides = Array.from(track.children);
-            const nextButton = document.getElementById('arrow-next');
-            const prevButton = document.getElementById('arrow-prev');
-            
-            let currentIndex = 0;
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <h2>Which Calendar is Yours?</h2>
+        <div class="benefits-grid">
+            <div class="calendar-card">
+                <a href="https://whimsicalwishcrafts.etsy.com/listing/1790809496" target="_blank">
+                    <img src="./Media/calendars/cozy critters.webp" alt="Cozy Critters 2025 Wall Calendar">
+                    <h3>Cozy Critters</h3>
+                </a>
+            </div>
+            <div class="calendar-card">
+                <a href="https://whimsicalwishcrafts.etsy.com/listing/1790306544" target="_blank">
+                    <img src="./Media/calendars/liminal spaces.webp" alt="Liminal Spaces 2025 Wall Calendar">
+                    <h3>Liminal Spaces</h3>
+                </a>
+            </div>
+            <div class="calendar-card">
+                <a href="https://whimsicalwishcrafts.etsy.com/listing/1802912835" target="_blank">
+                    <img src="./Media/calendars/rhytmic raccoons.webp" alt="Rhythmic Raccoons 2025 Wall Calendar">
+                    <h3>Rhythmic Raccoons</h3>
+                </a>
+            </div>
+            <div class="calendar-card">
+                <a href="https://whimsicalwishcrafts.etsy.com/listing/1802980151" target="_blank">
+                    <img src="./Media/calendars/wildlife wiseguys.webp" alt="Wildlife Wiseguys 2025 Wall Calendar">
+                    <h3>Wildlife Wiseguys</h3>
+                </a>
+            </div>
+            <div class="calendar-card">
+                <a href="https://whimsicalwishcrafts.etsy.com/listing/1805487591" target="_blank">
+                    <img src="./Media/calendars/dogs with crystals.webp" alt="Dogs with Crystals 2025 Wall Calendar">
+                    <h3>Dogs with Crystals</h3>
+                </a>
+            </div>
+            <div class="calendar-card">
+                <a href="https://whimsicalwishcrafts.etsy.com/listing/1804955911" target="_blank">
+                    <img src="./Media/calendars/cats with crystals.webp" alt="Cats with Crystals 2025 Wall Calendar">
+                    <h3>Cats with Crystals</h3>
+                </a>
+            </div>
+        </div>
+    </section>
 
-            const updateSlide = () => {
-                 track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
+    <!-- Mode Toggle Section -->
+    <section class="mode-toggle" id="mode-toggle">
+        <h2>2 Styles to Choose From: Light Mode and Dark Mode Pages</h2>
+        <div class="mode-container">
+            <div class="mode-switch">
+                <label class="switch">
+                    <input type="checkbox" id="modeToggle">
+                    <span class="slider round"></span>
+                </label>
+                <span class="mode-label" id="modeLabel">Light Mode</span>
+            </div>
+            <div class="mode-preview">
+                <img src="./Media/modes/light mode.png" alt="Light Mode Calendar" id="modeImage" class="mode-image">
+            </div>
+        </div>
+    </section>
 
-            prevButton.addEventListener('click', e => {
-                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                updateSlide();
-            });
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <p>"Super cute desktop calendar that I will enjoy all year long while working from home! I would definately purchase from this shop again in the future!"</p>
+                <div class="customer-info">
+                    <span>Cynthia</span>
+                    <span class="review-date">Jan 23, 2024</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <p>"The calender is super cute! Exactly what I wanted and got to my home in a timely manner. I will most likely come back to this shop if/when I need another one. 😁"</p>
+                <div class="customer-info">
+                    <span>Shannah Rosbury</span>
+                    <span class="review-date">Jan 15, 2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            nextButton.addEventListener('click', e => {
-                currentIndex = (currentIndex + 1) % slides.length;
-                updateSlide();
-            });
-          
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % slides.length;
-                updateSlide();
-            }, 5000);
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <details>
+                <summary>What are the calendar specifications?</summary>
+                <p>Our calendars are printed on premium 250 gsm / 100 lb semi-gloss silk paper. The format is Ledger vertical (11" x 16.5"). Each calendar includes:</p>
+                <ul>
+                    <li>13 sheets total (26 pages)</li>
+                    <li>Two pages per month (image page + month view)</li>
+                    <li>Cover page and back page</li>
+                    <li>Double-sided printing</li>
+                </ul>
+            </details>
+            <details>
+                <summary>How does the calendar hang on the wall?</summary>
+                <p>The calendar features:</p>
+                <ul>
+                    <li>Regular spiral binding (wire-O binder in metallic, black, or white)</li>
+                    <li>Pre-punched hanging hole (positioned 0.57" from edge)</li>
+                    <li>Unfolds to double size when hanging</li>
+                </ul>
+            </details>
+            <details>
+                <summary>How is the calendar packaged and shipped?</summary>
+                <p>Your calendar will arrive in a protective flat packaging box (brown or white) to ensure it reaches you in perfect condition. We ship within 48 hours, and delivery takes 3-5 business days within the US.</p>
+            </details>
+            <details>
+                <summary>What makes this calendar unique?</summary>
+                <p>Our double-page layout gives you both a beautiful image and a spacious month view for each month. The premium paper quality and professional wire-binding ensure your calendar will look great all year long.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>Ready to Create Your Perfect Calendar?</h2>
+        <a href="https://www.etsy.com/shop/WhimsicalWishCrafts?ref=shop-header-name&listing_id=1792786732&from_page=listing&section_id=50899879" class="cta-button">Shop Calendars Now</a>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
         }
-    });
-  </script>
+        
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        }
+    </script>
 </body>
-</html>
+</html> 
