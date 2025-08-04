@@ -667,48 +667,564 @@ details li {
     }
 }
 
+/* Mobile Menu Styles */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+.mobile-menu.active {
+    left: 0;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 80%;
+    max-width: 300px;
+}
+
+.mobile-menu a:hover {
+    background: var(--light-bg);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.mobile-menu .cta-button {
+    background: var(--accent-color);
+    color: var(--white);
+    margin-top: 1rem;
+}
+
+.mobile-menu .cta-button:hover {
+    background: var(--accent-hover);
+    color: var(--white);
+}
+
+/* Hamburger animation */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Typography adjustments */
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    /* Navbar mobile improvements */
+    .navbar {
+        padding: 0.75rem 3%;
+    }
+    
     .nav-links {
         display: none;
     }
     
-    h2 {
-        font-size: 2rem;
+    .mobile-menu-toggle {
+        display: flex;
     }
     
+    /* Hero section mobile optimizations */
     .hero {
-        padding: 100px 5% 3rem;
+        padding: 100px 3% 2rem;
+        min-height: 90vh;
     }
     
     .hero-content p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+    
+    /* Showcase slider mobile improvements */
+    .showcase-container {
+        padding: 0 10px;
+        margin: 1rem auto;
+    }
+    
+    .showcase-slider {
+        border-radius: 15px;
+    }
+    
+    .showcase-slide {
+        padding: 1rem;
+    }
+    
+    .showcase-slide img {
+        width: 85%;
+    }
+    
+    .slide-arrow {
+        width: 40px;
+        height: 40px;
         font-size: 1.2rem;
+    }
+    
+    #arrow-prev {
+        margin-right: 0.5rem;
+    }
+    
+    #arrow-next {
+        margin-left: 0.5rem;
+    }
+    
+    .showcase-dots {
+        gap: 0.5rem;
+        margin: 1rem 0;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .showcase-description {
+        padding: 1.5rem;
+        margin: 1rem auto;
+    }
+    
+    .showcase-description p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Section padding adjustments */
+    .about-us,
+    .benefits,
+    .mode-toggle,
+    .testimonials,
+    .faq,
+    .final-cta {
+        padding: 4rem 3%;
+    }
+    
+    /* About section mobile */
+    .about-us h2 {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .about-text .tagline {
+        font-size: 1.1rem;
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .about-text .signature {
+        font-size: 1.2rem;
+        margin-top: 2rem;
+    }
+    
+    /* Benefits grid mobile */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1rem;
+    }
+    
+    .calendar-card {
+        padding: 1.5rem;
+    }
+    
+    .calendar-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* Mode toggle mobile */
+    .mode-toggle h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .mode-container {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1rem;
+    }
+    
+    .mode-switch {
+        min-width: 120px;
+    }
+    
+    .switch {
+        width: 60px;
+        height: 35px;
+    }
+    
+    .slider:before {
+        height: 27px;
+        width: 27px;
+    }
+    
+    input:checked + .slider:before {
+        transform: translateX(25px);
+    }
+    
+    .mode-label {
+        font-size: 1.1rem;
+    }
+    
+    .mode-preview {
+        max-width: 250px;
+    }
+    
+    /* Testimonials mobile */
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .testimonial-card {
+        padding: 2rem;
+    }
+    
+    .testimonial-card p {
+        font-size: 1rem;
+    }
+    
+    .customer-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    /* FAQ mobile */
+    .faq h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    details {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    summary {
+        font-size: 1.1rem;
+    }
+    
+    /* Final CTA mobile */
+    .final-cta h2 {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .final-cta .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        width: 90%;
+        max-width: 300px;
+    }
+    
+    /* CTA buttons general mobile */
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Tablet responsive design */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+        padding: 1rem 3%;
+    }
+    
+    .nav-links {
+        gap: 1.5rem;
+    }
+    
+    .hero {
+        padding: 100px 3% 3rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.3rem;
+    }
+    
+    .showcase-slide img {
+        width: 75%;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+    
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+    
+    .about-us,
+    .benefits,
+    .mode-toggle,
+    .testimonials,
+    .faq,
+    .final-cta {
+        padding: 5rem 3%;
+    }
+    
+    .about-us h2 {
+        font-size: 2.8rem;
+    }
+    
+    .final-cta h2 {
+        font-size: 2.8rem;
+    }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1025px) {
+    .hero-content p {
+        font-size: 1.5rem;
+    }
+    
+    .showcase-slide img {
+        width: 65%;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .hero {
+        padding: 80px 2% 1.5rem;
+        min-height: 85vh;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 0.5rem;
     }
     
     .showcase-slide img {
         width: 90%;
     }
     
-    .mode-container {
-        flex-direction: column;
-        gap: 2rem;
+    .slide-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
     }
     
-    .benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .testimonial-grid {
-        grid-template-columns: 1fr;
+    .about-us,
+    .benefits,
+    .mode-toggle,
+    .testimonials,
+    .faq,
+    .final-cta {
+        padding: 3rem 2%;
     }
     
     .about-us h2 {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
     }
     
     .final-cta h2 {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
+    }
+    
+    .calendar-card {
+        padding: 1rem;
+    }
+    
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+    
+    details {
+        padding: 1rem;
+    }
+    
+    .cta-button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .final-cta .cta-button {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: 70vh;
+        padding: 80px 3% 1rem;
+    }
+    
+    .hero-content p {
+        margin-bottom: 1rem;
+    }
+    
+    .showcase-container {
+        margin: 1rem auto;
+    }
+    
+    .about-us,
+    .benefits,
+    .mode-toggle,
+    .testimonials,
+    .faq,
+    .final-cta {
+        padding: 3rem 3%;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .showcase-slide img,
+    .calendar-card img,
+    .mode-image {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .slide-arrow,
+    .cta-button,
+    .calendar-card,
+    .testimonial-card,
+    details {
+        min-height: 44px; /* Apple's recommended touch target size */
+    }
+    
+    .dot {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .nav-links a {
+        padding: 0.5rem;
+    }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .showcase-track {
+        transition: none;
+    }
+    
+    .hero-background {
+        transition: none;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #E2E8F0;
+        --secondary-color: #CBD5E0;
+        --text-color: #F7FAFC;
+        --text-light: #A0AEC0;
+        --light-bg: #2D3748;
+        --white: #1A202C;
+        --border-color: #4A5568;
+    }
+    
+    .navbar {
+        background: rgba(26, 32, 44, 0.95);
+        border-bottom-color: var(--border-color);
+    }
+    
+    .hero {
+        background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%);
+    }
+    
+    .showcase-slide {
+        background: var(--white);
+    }
+    
+    .calendar-card,
+    .testimonial-card {
+        background: var(--white);
+        border-color: var(--border-color);
+    }
+    
+    details {
+        background: var(--light-bg);
+        border-color: var(--border-color);
+    }
+    
+    .mode-container {
+        background: var(--light-bg);
     }
 }
 

@@ -10,7 +10,37 @@ document.addEventListener('DOMContentLoaded', function() {
     const modeLabel = document.getElementById('modeLabel');
     const modeImage = document.getElementById('modeImage');
     
+    // Mobile menu elements
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+    
     let currentIndex = 0;
+    
+    // Mobile menu functionality
+    mobileMenuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Close mobile menu when clicking on links
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenuToggle.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!mobileMenuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+            mobileMenuToggle.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
     
     // Initial text fade out after 3 seconds
     setTimeout(() => {
@@ -106,5 +136,38 @@ document.addEventListener('DOMContentLoaded', function() {
             modeLabel.textContent = 'Light Mode';
             modeImage.src = './Media/modes/light mode.png';
         }
+    });
+    
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - next slide
+                currentIndex = (currentIndex + 1) % slides.length;
+                goToSlide(currentIndex);
+            } else {
+                // Swipe right - previous slide
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                goToSlide(currentIndex);
+            }
+        }
+    }
+    
+    // Touch event listeners for mobile swipe
+    const showcaseSlider = document.querySelector('.showcase-slider');
+    
+    showcaseSlider.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    showcaseSlider.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
     });
 }); 
