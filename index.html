@@ -1,81 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-  <title>Unique 2025 Calendars</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unique 2025 Calendars by WhimsicalWishCrafts</title>
 
-  <!-- Inter (variable) -->
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
-  />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css" />
+    <style>
+        :root {
+            --primary-color: #2C5282;
+            --secondary-color: #4299E1;
+            --accent-color: #F6AD55;
+            --text-color: #2D3748;
+            --light-bg: #F7FAFC;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navbar */
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+            overflow: hidden;
+            background-image: url('./Media/raccons in art/default.png');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.6);
+            z-index: 1;
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+        }
+
+        /* Showcase Slider */
+        .showcase-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+
+        .showcase-slider {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .showcase-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .showcase-slide {
+            min-width: 100%;
+            padding: 0 1rem;
+        }
+
+        .showcase-slide img {
+            width: 100%;
+            max-width: 400px; /* Prevents image from getting too large */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            object-fit: contain;
+        }
+
+        .slide-arrow {
+            background: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 2;
+            margin: 0 1rem;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            background: var(--accent-color);
+            color: var(--white) !important;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(246, 173, 85, 0.4);
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 4rem 0;
+            scroll-margin-top: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar container">
-    <div class="logo">WhimsicalWishCrafts</div>
-    <ul class="nav-links">
-      <li><a href="#about">Welcome</a></li>
-      <li><a href="#benefits">Calendars</a></li>
-      <li><a href="#mode-toggle">Print Styles</a></li>
-      <li><a href="#testimonials">Reviews</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li>
-        <a
-          href="https://www.etsy.com/shop/WhimsicalWishCrafts"
-          class="cta-button"
-          >Shop Now</a
-        >
-      </li>
-    </ul>
+  <nav class="navbar">
+    <div class="container navbar-container">
+        <div class="logo">WhimsicalWishCrafts</div>
+        <ul class="nav-links">
+            <li><a href="#about">Welcome</a></li>
+            <li><a href="#benefits">Calendars</a></li>
+            <li><a href="#mode-toggle">Print Styles</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="https://www.etsy.com/shop/WhimsicalWishCrafts" class="cta-button" target="_blank">Shop Now</a></li>
+        </ul>
+    </div>
   </nav>
 
-  <section
-    class="hero"
-    style="background-image: url('./Media/raccons in art/default.png')"
-  >
-    <div class="hero-overlay"></div>
-    <div class="hero-content container">
+  <section class="hero" id="home">
+    <div class="hero-content">
       <h1>2025 Raccoons in Art</h1>
-      <p>
-        Discover our collection of beautifully designed calendars that bring
-        art and functionality to your space.
-      </p>
+      <p>Discover our collection of beautifully designed calendars that bring art and functionality to your space.</p>
+      
       <div class="showcase-container">
         <button class="slide-arrow" id="arrow-prev">&#8249;</button>
         <div class="showcase-slider">
           <div class="showcase-track">
-            <!-- each slide -->
-            <div class="showcase-slide">
-              <img
-                src="./Media/raccons in art/month-1.png"
-                alt="January - Raccoon Art"
-              />
+            <div class="showcase-slide"><img src="./Media/raccons in art/month-1.png" alt="January - Raccoon Art"></div>
+            <div class="showcase-slide"><img src="./Media/raccons in art/month-2.png" alt="February - Raccoon Art"></div>
+            <div class="showcase-slide"><img src="./Media/raccons in art/month-3.png" alt="March - Raccoon Art"></div>
             </div>
-            <!-- etc… -->
-          </div>
         </div>
         <button class="slide-arrow" id="arrow-next">&#8250;</button>
       </div>
-      <p class="showcase-description">
-        Prepare to be captivated by the whimsical blend of high art and hilarious
-        hijinks that only raccoons can bring to life.
-      </p>
-      <a
-        href="https://www.etsy.com/listing/1792786732/raccoons-in-art-funny-2025-wall-calendar"
-        class="cta-button"
-        >Shop This Calendar</a
-      >
+      
+      <p class="showcase-description">Prepare to be captivated by the whimsical blend of high art and hilarious hijinks that only raccoons can bring to life.</p>
+      
+      <a href="https://www.etsy.com/listing/1792786732/raccoons-in-art-funny-2025-wall-calendar" class="cta-button" target="_blank">Shop This Calendar</a>
     </div>
   </section>
+  
+  <section id="about" class="container">
+      <h2 class="section-title">Welcome!</h2>
+      </section>
 
-  <!-- …other sections (about, benefits, etc.) wrap their content in .container too… -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const track = document.querySelector('.showcase-track');
+        if (track) {
+            const slides = Array.from(track.children);
+            const nextButton = document.getElementById('arrow-next');
+            const prevButton = document.getElementById('arrow-prev');
+            
+            let currentIndex = 0;
 
-  <script src="script.js"></script>
+            const updateSlide = () => {
+                 track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            prevButton.addEventListener('click', e => {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateSlide();
+            });
+
+            nextButton.addEventListener('click', e => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlide();
+            });
+          
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlide();
+            }, 5000);
+        }
+    });
+  </script>
 </body>
 </html>
