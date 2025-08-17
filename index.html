@@ -3,109 +3,461 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting to WhimsicalWishCrafts Shop</title>
-    <meta http-equiv="refresh" content="0; url=https://www.etsy.com/shop/WhimsicalWishCrafts?ref=shop-header-name&listing_id=1792786732&from_page=listing">
+    <title>Whimsical Wish Crafts</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #00a591 0%, #008f7d 100%);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slides-container {
+            position: relative;
+            height: 100vh;
+            transition: transform 0.5s cubic-bezier(0.8, 0.0, 0.2, 1);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            text-align: center;
-        }
-        
-        .redirect-container {
-            background: rgba(255, 255, 255, 0.1);
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            padding: 3rem;
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            max-width: 500px;
-            margin: 2rem;
+            margin: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.35s cubic-bezier(0.8, 0.0, 0.2, 1);
         }
-        
-        h1 {
-            margin-bottom: 1rem;
-            font-size: 2rem;
+
+        .slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-        
-        p {
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            opacity: 0.9;
+
+        .slide.active {
+            transform: scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
         }
-        
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid white;
+
+        .navigation {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            right: 30px;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 2rem;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+
+        .nav-dot.active {
+            background: #fff;
+            transform: scale(1.3);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
-        
-        .manual-link {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
+
+        .nav-dot:hover {
+            background: rgba(255, 255, 255, 0.7);
+            transform: scale(1.2);
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .control-btn {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.8);
             color: white;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
-        
-        .manual-link:hover {
-            background: rgba(255, 255, 255, 0.3);
+
+        .control-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
             transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 1);
         }
-        
+
+        .control-btn:disabled {
+            background: rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.5);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .title {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 30px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .instructions {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .shop-button {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #00a591 0%, #8367c7 100%);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 25px rgba(0, 165, 145, 0.2);
+            display: inline-block;
+        }
+
+        .shop-button:hover {
+            background: linear-gradient(135deg, #ff5252 0%, #d63031 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 165, 145, 0.2);
+            border-color: rgba(255, 255, 255, 1);
+        }
+
+        .shop-button:active {
+            transform: translateY(-1px);
+        }
+
         @media (max-width: 768px) {
-            .redirect-container {
-                padding: 2rem;
-                margin: 1rem;
+            .navigation {
+                right: 15px;
             }
             
-            h1 {
-                font-size: 1.5rem;
+            .controls {
+                right: 240px;
+                bottom: 20px;
+                gap: 15px;
             }
             
-            p {
-                font-size: 1rem;
+            .title {
+                font-size: 24px;
+                padding: 12px 24px;
+            }
+            
+            .slide {
+                margin: 10px;
+            }
+
+            .shop-button {
+                bottom: 35px;
+                left: 20px;
+                padding: 11px 24px;
+                font-size: 14px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="redirect-container">
-        <div class="spinner"></div>
-        <h1>Redirecting to WhimsicalWishCrafts</h1>
-        <p>You're being redirected to our Etsy shop. If you're not redirected automatically, click the button below.</p>
-        <a href="https://www.etsy.com/shop/WhimsicalWishCrafts?ref=shop-header-name&listing_id=1792786732&from_page=listing" class="manual-link">Visit Shop Now</a>
-    </div>
-    
-    <script>
-        // Fallback redirect in case meta refresh doesn't work
-        setTimeout(function() {
-            window.location.href = 'https://www.etsy.com/shop/WhimsicalWishCrafts?ref=shop-header-name&listing_id=1792786732&from_page=listing';
-        }, 2000);
+    <div class="container">
+        <div class="instructions">Use scroll wheel, drag, or arrow keys to navigate</div>
+        <a href="https://www.etsy.com/shop/WhimsicalWishCrafts" target="_blank" class="shop-button">See It Here</a>
         
-        // Track redirect for analytics (optional)
-        window.addEventListener('load', function() {
-            // You can add analytics tracking here if needed
-            console.log('Redirect page loaded');
+        <div class="slides-container" id="slidesContainer">
+            <div class="slide active" data-slide="0">
+                <img src="brand_guidelines_Page_1.png" alt="Brand Guidelines Page 1">
+            </div>
+            <div class="slide" data-slide="1">
+                <img src="brand_guidelines_Page_2.png" alt="Brand Guidelines Page 2">
+            </div>
+            <div class="slide" data-slide="2">
+                <img src="brand_guidelines_Page_3.png" alt="Brand Guidelines Page 3">
+            </div>
+            <div class="slide" data-slide="3">
+                <img src="brand_guidelines_Page_4.png" alt="Brand Guidelines Page 4">
+            </div>
+            <div class="slide" data-slide="4">
+                <img src="brand_guidelines_Page_5.png" alt="Brand Guidelines Page 5">
+            </div>
+            <div class="slide" data-slide="5">
+                <img src="brand_guidelines_Page_6.png" alt="Brand Guidelines Page 6">
+            </div>
+            <div class="slide" data-slide="6">
+                <img src="brand_guidelines_Page_7.png" alt="Brand Guidelines Page 7">
+            </div>
+        </div>
+
+        <div class="navigation" id="navigation">
+            <div class="nav-dot active" data-slide="0"></div>
+            <div class="nav-dot" data-slide="1"></div>
+            <div class="nav-dot" data-slide="2"></div>
+            <div class="nav-dot" data-slide="3"></div>
+            <div class="nav-dot" data-slide="4"></div>
+            <div class="nav-dot" data-slide="5"></div>
+            <div class="nav-dot" data-slide="6"></div>
+        </div>
+
+        <div class="footer-controls">
+            <a href="https://www.etsy.com/shop/WhimsicalWishCrafts" target="_blank" class="shop-button">Explore the Etsy Store ⭐</a>
+            <div class="controls">
+                <button class="control-btn" id="prevBtn">Previous</button>
+                <div class="slide-counter" id="slideCounter">1 / 7</div>
+                <button class="control-btn" id="nextBtn">Next</button>
+            </div>
+        </div>
+
+    <script>
+        class SlideShow {
+            constructor() {
+                this.currentSlide = 0;
+                this.totalSlides = 7;
+                this.isDragging = false;
+                this.startY = 0;
+                this.startScroll = 0;
+                this.container = document.getElementById('slidesContainer');
+                this.slides = document.querySelectorAll('.slide');
+                this.dots = document.querySelectorAll('.nav-dot');
+                this.counter = document.getElementById('slideCounter');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.updateSlides();
+            }
+
+            bindEvents() {
+                // Mouse wheel
+                this.container.addEventListener('wheel', (e) => {
+                    e.preventDefault();
+                    if (e.deltaY > 0) {
+                        this.nextSlide();
+                    } else {
+                        this.prevSlide();
+                    }
+                });
+
+                // Touch events for mobile
+                this.container.addEventListener('touchstart', (e) => {
+                    this.startY = e.touches[0].clientY;
+                });
+
+                this.container.addEventListener('touchend', (e) => {
+                    const endY = e.changedTouches[0].clientY;
+                    const diff = this.startY - endY;
+                    
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) {
+                            this.nextSlide();
+                        } else {
+                            this.prevSlide();
+                        }
+                    }
+                });
+
+                // Mouse drag
+                this.container.addEventListener('mousedown', (e) => {
+                    this.isDragging = true;
+                    this.startY = e.clientY;
+                    this.startScroll = this.currentSlide;
+                    this.container.style.cursor = 'grabbing';
+                });
+
+                document.addEventListener('mousemove', (e) => {
+                    if (!this.isDragging) return;
+                    
+                    const diff = this.startY - e.clientY;
+                    const threshold = 100;
+                    
+                    if (Math.abs(diff) > threshold) {
+                        if (diff > 0 && this.currentSlide < this.totalSlides - 1) {
+                            this.currentSlide = this.startScroll + 1;
+                        } else if (diff < 0 && this.currentSlide > 0) {
+                            this.currentSlide = this.startScroll - 1;
+                        }
+                        this.updateSlides();
+                        this.isDragging = false;
+                        this.container.style.cursor = 'grab';
+                    }
+                });
+
+                document.addEventListener('mouseup', () => {
+                    this.isDragging = false;
+                    this.container.style.cursor = 'grab';
+                });
+
+                // Navigation dots
+                this.dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        this.goToSlide(index);
+                    });
+                });
+
+                // Control buttons
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    switch(e.key) {
+                        case 'ArrowUp':
+                        case 'ArrowLeft':
+                            e.preventDefault();
+                            this.prevSlide();
+                            break;
+                        case 'ArrowDown':
+                        case 'ArrowRight':
+                            e.preventDefault();
+                            this.nextSlide();
+                            break;
+                        case 'Home':
+                            e.preventDefault();
+                            this.goToSlide(0);
+                            break;
+                        case 'End':
+                            e.preventDefault();
+                            this.goToSlide(this.totalSlides - 1);
+                            break;
+                    }
+                });
+
+                // Set initial cursor
+                this.container.style.cursor = 'grab';
+            }
+
+            goToSlide(index) {
+                this.currentSlide = Math.max(0, Math.min(index, this.totalSlides - 1));
+                this.updateSlides();
+            }
+
+            nextSlide() {
+                if (this.currentSlide < this.totalSlides - 1) {
+                    this.currentSlide++;
+                    this.updateSlides();
+                }
+            }
+
+            prevSlide() {
+                if (this.currentSlide > 0) {
+                    this.currentSlide--;
+                    this.updateSlides();
+                }
+            }
+
+            updateSlides() {
+                // Update slide positions
+                this.slides.forEach((slide, index) => {
+                    const offset = (index - this.currentSlide) * 100;
+                    slide.style.transform = `translateX(${offset}vw)`;
+                    
+                    if (index === this.currentSlide) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+
+                // Update navigation dots
+                this.dots.forEach((dot, index) => {
+                    if (index === this.currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+
+                // Update counter
+                this.counter.textContent = `${this.currentSlide + 1} / ${this.totalSlides}`;
+
+                // Update button states
+                this.prevBtn.disabled = this.currentSlide === 0;
+                this.nextBtn.disabled = this.currentSlide === this.totalSlides - 1;
+            }
+        }
+
+        // Initialize the slideshow when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new SlideShow();
         });
     </script>
 </body>
